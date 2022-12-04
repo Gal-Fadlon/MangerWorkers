@@ -235,43 +235,4 @@ public class App {
         System.out.println("[DEBUG] Local " + localKeyName + " sending terminate message to manger!");
         aws.sendMessage(aws.getQueueUrl(aws.managerQueueName), String.valueOf(AWS.TaskType.Terminate.ordinal()));
     }
-
-
-//    private static void test_setUp() {
-//        String filePath = "C:\\Users\\idana\\Desktop\\input-example.txt";
-//        int tasksPerWorker = 5;
-//        //runLocalApp(filePath, tasksPerWorker, false);
-//    }
-
-//    private static void test_receivedMessage() {
-//        Message m = aws.getNewMessage(aws.getQueueUrl(aws.managerQueueName));
-//        System.out.println(m.body());
-//        System.out.println(m.receiptHandle());
-//        aws.deleteMessageFromQueue(aws.getQueueUrl(aws.managerQueueName), m);
-//    }
-
-//    private static void test_saveOutputToFile() {
-//        aws.createBucketIfNotExists(aws.BUCKET_NAME);
-//        outFilePath = "C:\\Users\\idan\\Desktop\\תואר\\סמסטר ז\\מערכות מבוזרות\\new1\\myapp\\src\\out\\output.html";
-//        aws.uploadFileToS3(aws.BUCKET_NAME, "keytest", "C:\\Users\\דורין\\Desktop\\localAppQueueTest.txt");
-//        String outputFileStr = aws.downloadFileFromS3(aws.BUCKET_NAME, "keytest");
-//
-//        String htmlTagsOpen = "<!DOCTYPE html><html><body><p><table><tr><th>Operation</th><th>Origin URL</th><th>Output URL</th></tr>";
-//        String htmlTagsClose = "</table></p></body></html>";
-//
-//        String[] outputLines = outputFileStr.split("\n");
-//        try {
-//            BufferedWriter writer = new BufferedWriter(new FileWriter(outFilePath));
-//            writer.write(htmlTagsOpen);
-//            for (String line : outputLines) {
-//                String[] singleOutput = line.split("\t");
-//                writer.write("<tr><th>" + singleOutput[0] + "</th><th>" + singleOutput[1] + "</th><th>"
-//                        + singleOutput[2] + "</th></tr>");
-//            }
-//            writer.write(htmlTagsClose);
-//            writer.close();
-//        } catch (Exception e) {
-//            //catch any exceptions here
-//        }
-//    }
 }
